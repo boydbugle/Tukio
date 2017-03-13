@@ -1,0 +1,15 @@
+<div class="container">
+<% if @category.events().any?() %>
+   <h2>Here are all the events for category:<%= @category.categorie_name() %> </h2>
+  <ul>
+    <% @category.events().each() do |event| %>
+    <li><a href="/event/<%= event.id()%>"><%= event.organization() %>,<%=event.event_name() %>,<%= event.time() %>,<%= event.location() %>, <%= event.fee() %></a> </li>
+    <% end %>
+  </ul>
+
+
+   <% else %>
+   <h1>SORRY</h1>
+     <h3>There are no events for <%= @category.categorie_name() %>!</h3>
+   <% end %>
+</div>
